@@ -478,28 +478,6 @@ const client = new Client({
   intents: [GatewayIntentBits.Guilds]
 });
 
-// ================= COMMANDS =================
-const commands = [
-  new SlashCommandBuilder().setName('rps').setDescription('Play Rock Paper Scissors'),
-  new SlashCommandBuilder().setName('slots').setDescription('Play slots'),
-  new SlashCommandBuilder().setName('higherlower').setDescription('Higher or Lower'),
-  new SlashCommandBuilder().setName('crash').setDescription('Play crash'),
-  new SlashCommandBuilder().setName('blackjack').setDescription('Play blackjack')
-];
-
-// Register commands (runs once on startup)
-client.once('ready', async () => {
-  console.log(`Logged in as ${client.user.tag}`);
-
-  const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
-
-  await rest.put(
-    Routes.applicationCommands(client.user.id),
-    { body: commands }
-  );
-});
-
-
 
 // ================= LOGIN =================
 client.login(process.env.TOKEN);
