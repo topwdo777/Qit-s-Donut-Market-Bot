@@ -1,12 +1,1 @@
-balance.js
-const eco = require('../services/economy');
 
-module.exports = {
-  name: 'balance',
-  description: 'Check your balance',
-
-  async execute(interaction) {
-    const user = await eco.getUser(interaction.user.id);
-    return interaction.reply(`💰 Balance: ${user.balance}`);
-  }
-};
